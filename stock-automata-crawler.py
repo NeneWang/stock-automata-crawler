@@ -113,4 +113,4 @@ def getTODOStockList():
     return stockList
 
 print(getTODOStockList())
-updateBasedList(getTODOStockList()[:3])
+updateBasedList(getTODOStockList())
