@@ -115,7 +115,7 @@ def getTODOStockList():
 
 
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', seconds=2)
+@sched.scheduled_job('interval', hours=4)
 def scheduled_job():
     print(getTODOStockList())
     #updateBasedList(getTODOStockList())
