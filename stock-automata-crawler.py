@@ -13,6 +13,7 @@ import pprint
 import json
 import csv
 import pandas as pd
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -112,5 +113,10 @@ def getTODOStockList():
         stockList.append(stockToSearch["symbol"])
     return stockList
 
-print(getTODOStockList())
-updateBasedList(getTODOStockList())
+
+sched = BlockingScheduler()
+@sched.scheduled_job('interval', seconds=2)
+def scheduled_job():
+    print(getTODOStockList())
+    #updateBasedList(getTODOStockList())
+sched.start()
