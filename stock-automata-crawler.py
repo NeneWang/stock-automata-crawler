@@ -118,5 +118,5 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', hours=4)
 def scheduled_job():
     print(getTODOStockList())
-    #updateBasedList(getTODOStockList())
+    updateBasedList(getTODOStockList())
 sched.start()
